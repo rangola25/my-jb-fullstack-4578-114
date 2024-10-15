@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Input form</title>
+</head>
+<body>
+    <p>Here is an input form:</p>
+    <form>
+        <!-- <p>First name:</p> -->
+        <label for="firstname">First name:</label>
+        <br>
+        <input id="firstname" placeholder="please enter your first name...">
+    <br>
+    <br>
+    <!-- input type="text" -->
+    <label for="lasttname">Last name:</label>
+    <br>
+    <input type="text" id="lasttname" placeholder="please enter your last name...">
+    <br>
+    <br>
+    <label for="birthdate">Birth date:</label>
+    <br>
+    <input type="date" id="birthdate">
+<br>
+<br>
+<label for="meetingtime">Meeting time:</label>
+<br>
+<input type="datetime-local" id="meetingtime">
+<br>
+<br>
+<label for="profilepic">Profile pic:</label>
+<br>
+<input type="file" accept="jpg" id="profilepic">
+<br>
+<br>
+<label for="complaint">Complaint</label>
+<br>
+<textarea id="complaint"></textarea>
+<br>
+<br>
+<label for="favoritecolor">Favorite color</label>
+<br>
+<input type="color" id="favoritecolor">
+<br>
+<br>
+<label for="email">Email:</label>
+<br>
+<input type="email" id="email">
+<br>
+<br>
+<label for="age">Age:</label>
+<br>
+<input type="number" step="0.5" id="age">
+<br>
+<br>
+<label for="password">Password:</label>
+<br>
+<input type="password" id="password">
+<br>
+<br>
+<label for="agree">I agree to terms:</label>
+<br>
+<input type="checkbox" id="agree">
+<br>
+<br>
+<label for="agreetoemail">I agree to accept emails:</label>
+<br>
+<input type="checkbox" id="agreetoemail">
+<br>
+<br>
+<label>male:</label>
+<input type="radio" name="gender">
+
+<label>female:</label>
+<input type="radio" name="gender">
+<br>
+<br>
+<label for="telnumber">Tel number:</label>
+<br>
+<input type="tel" id="telnumber">
+<br>
+<br>
+<label for="city">City:</label>
+<br>
+<select>
+    <option selected="1" disabled="1">please select city...</option>
+    <option>Tel Aviv</option>
+    <option>Petach Tikwa</option>
+    <option>Jerusalem</option>
+    <option>Ashkelon</option>
+</select>
+<br>
+<br>
+<label for="hobies">Hobbies:</label>
+<br>
+<select id="hobbies" multiple>
+    <option>cooking</option>
+    <option>sports</option>
+    <option>knitting</option>
+    <option>shoe making</option>
+</select>
+</form>
+</body>
+</html>

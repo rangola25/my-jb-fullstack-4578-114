@@ -1,0 +1,33 @@
+@font-face {
+    font-family: VampireWars;
+    src: url("/assets/fonts/Vampire\ Wars.otf");
+}
+
+body {
+    display: flex; /* השתמש ב-flexbox */
+    justify-content: center; /* מרכז את התוכן אופקית */
+    align-items: center; /* מרכז את התוכן אנכית */
+    /* height: 100vh; גובה מלא של החלון */
+    margin: 0; /* ביטול מרווח חיצוני */
+    animation: MyLongAnima 5s infinite linear; /* הוספת האנימציה לגוף */
+}
+
+h1 {
+    width: 320px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(to bottom left, blue, purple, red, black, yellow); /* צבעים באלכסון */
+    color: white;
+    box-shadow: 10px 10px 5px grey;
+    font-family: VampireWars;
+}
+
+@keyframes MyLongAnima {
+    0% {
+        transform: rotate(0deg) scale(1); /* התחלה */
+    }
+    100% {
+        transform: rotate(360deg) scale(1); /* סיום */
+    }
+}

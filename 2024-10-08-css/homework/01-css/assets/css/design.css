@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* רווח בין הפסקאות */
+  }
+  
+  .container > p {
+    justify-content: center; /* מרכז אופקית */
+    border: 3px solid black;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 150px; /* גובה קבוע כדי להבטיח שכולם באותו גובה */
+    margin: 30px; /* ביטול מרווח חיצוני */
+  }
+  
+  .container > p:nth-child(1) {
+    color: red; /* צבע טקסט */
+  }
+  
+  .container > p:nth-child(2) {
+    color: yellow; /* צבע טקסט */
+  }
+  
+  .container > p:nth-child(3) {
+    color: greenyellow; /* צבע טקסט */
+  }
+  
+  .container > p a {
+    color: inherit; /* הקישור יורש את הצבע מהפסקה */
+    text-decoration: none; /* אם רוצים לבטל קו תחתון */
+  }
+  
+

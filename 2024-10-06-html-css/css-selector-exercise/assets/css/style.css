@@ -1,0 +1,15 @@
+.headline {
+    text-align: center;
+}
+
+  input::placeholder {
+    background-color: yellow;
+  }
+
+  body {
+    text-align: center;
+  }
+
+  html {
+    border: 10px solid black;
+  }

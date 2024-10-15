@@ -1,0 +1,89 @@
+html {
+
+    background-size: cover; /* Makes the background cover the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Optional: Full viewport height */
+    text-align: center;
+    background-image: url(https://picketandrail.com/cdn/shop/articles/dangers-of-pine-wood-415894.jpg?v=1686388565);
+    width: 100%;
+    
+}
+
+/* body{
+    background-image: url(https://picketandrail.com/cdn/shop/articles/dangers-of-pine-wood-415894.jpg?v=1686388565);
+    width: 100%;
+} */
+
+img {
+    width: 150px;
+    height: 150px;
+    text-align: center; /* Centers inline elements like images */
+    margin-top: 200px;
+   
+}
+
+
+table {
+    margin-left: auto; /* Pushes the table to the right */
+    margin-right: 0;
+border: 1px solid black;
+
+}
+
+h1 {
+    color: red;
+    direction: rtl;
+}
+
+.welcome-text{
+    direction: rtl;
+}
+
+caption{
+    direction: rtl;
+}
+
+input {
+    background-color: yellow;
+}
+
+input:hover {
+ background-color: greenyellow; 
+    
+}
+
+@supports (display:grid){
+    tbody{
+      display:grid;
+    }
+    tr{
+      display:grid;
+      grid-template-columns: 0fr 2fr 1fr;
+    }
+    td{
+      grid-column:2;
+      grid-row:1;
+    }
+    td:first-of-type{
+      grid-column: 3;
+    }
+    td:last-of-type{
+      grid-column: 2;
+    }
+  }
+
+.left{
+    text-align: left;
+    direction: rtl;
+    
+}
+
+input[type="submit"] {
+    background-color: rgb(151, 202, 246);
+}
+
+.melel {
+  text-align: center;
+  margin-top: 20px; /* Optional spacing */
+}

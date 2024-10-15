@@ -1,0 +1,103 @@
+@font-face {
+    font-family: SpicyPotatos;
+    src: url("/04-css/assets/font/Spicy\ Potatos.otf");
+}
+
+html, body { 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(to right, rgb(152, 232, 239),white);
+    font-family: SpicyPotatos;
+}
+
+.container {
+    height: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+menu, footer{
+    border: 1px solid black;
+}
+
+.container > * { 
+    /* border: 1px solid black; */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 3fr; /* 4 עמודות באותו רוחב ועמודה אחת ברוחב כפול */
+}
+
+
+header, footer, menu {
+    grid-column: span 6;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+main {
+    grid-column: span 4;
+}
+
+a:nth-child(1) {
+    margin-right: 100px;
+}
+
+a:nth-child(2) {
+    margin-right: 100px;
+}
+
+a:nth-child(3) {
+    margin-right: 100px;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* תא אחד */
+    border: 1px solid black;
+    height: 50%; /* תופס חצי מהגובה של ה-ASIDE */
+    padding: 10px; /* רווח פנימי */
+}
+
+.image-container {
+    display: flex; 
+    justify-content: center; /* מרכז את התמונות */
+}
+
+.image-container img  {
+    width: 50%; /* רוחב כל תמונה */
+    height: 100%; /* גובה קבוע לכל התמונות */
+    margin-right: 20px;
+}
+
+.button-container {
+    display: flex; /* השתמש ב-flexbox */
+    justify-content: space-around; /* רווח שווה בין הכפתורים */
+}
+
+aside {
+    grid-column: span 2; /* אם תשתמש ב-4 עמודות, זה ימלא 2 עמודות */
+    height: 100%; /* מאפשר ל-ASIDE למלא את כל הגובה */
+}
+
+.aside-content {
+    display: flex;
+    flex-direction: column; /* סידור תוכן בעמודה */
+    height: 100%; /* כדי לוודא שה-ASIDE מתמלא */
+}
+
+.aside-content img {
+    width: 100%; /* תמונה תתפוס את כל הרוחב של ה-ASIDE */
+    height: 50%; /* תופס חצי מהגובה של ה-ASIDE */
+    object-fit: cover; /* שומר על פרופורציות התמונה */
+    /* border-bottom: 1px solid black; גבול תחתון לתמונה */
+}
+
+.table label, .table input, .button-container, p {
+    border: 1px solid rgb(115, 191, 226); /* גבול לכל אלמנט */
+    padding: 10px; /* רווח פנימי */
+    margin: 2px;
+}

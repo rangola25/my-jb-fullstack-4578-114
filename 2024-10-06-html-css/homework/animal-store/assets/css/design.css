@@ -1,0 +1,79 @@
+html {
+    background-color: rgb(124, 245, 245);
+}
+
+h1 {
+    text-align: center;
+}
+
+.talk {
+ text-align: right;
+ ;
+}
+
+.container {
+    text-align: center; /* Centers inline elements like images */
+}
+
+img {
+    width: 500px; /* Fixed width */
+    height: 500px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    margin: 0; /* Remove margin */
+    padding: 5px; /* Optional: Adds a little space around each image */
+}
+.melel {
+    text-align: center;
+}
+
+.container2{
+    display:flex;
+    justify-content: center;
+}
+
+.contact{
+    margin-right:100px ;
+}
+.animals{
+    margin-right: 100px;
+}
+table {
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse; /* Remove gaps between cells */
+}
+
+td {
+    padding: 0; /* Remove padding from table cells */
+    border: none; /* Optional: Remove borders if not needed */
+}
+
+html, body {
+    height: 100%; /* Make sure body takes full height */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.container {
+    flex: 1; /* Allow the container to grow and fill available space */
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center; /* Center the image vertically if needed */
+}
+
+.melel {
+    text-align: center;
+    margin-top: 20px; /* Optional spacing */
+}
+
+.label {
+text-align: center;
+
+}
+
+h2 {
+    text-align: center;
+}

@@ -1,0 +1,12 @@
+body {
+    background-image: url('https://www.logodesignlove.com/images/classic/nba-logo.jpg');
+}
+
+html, table {
+    color: rgb(31, 172, 99);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-decoration: underline ;
+}

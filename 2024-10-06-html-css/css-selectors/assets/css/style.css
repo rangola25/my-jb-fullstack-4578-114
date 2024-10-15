@@ -1,0 +1,84 @@
+/*name selector*/
+html { 
+border: 1px solid blue;
+}
+body { 
+    border: 1px solid red;
+}
+
+h1 {
+color: green;
+background-color:yellow ;
+}
+
+p {
+color: red;
+}
+
+.cool-design {
+    color: blue;
+    background-color:red ;
+    }
+
+    .cool-design-big {
+font-size: xx-large;
+        font-weight: bold;
+        color: green;
+    }
+
+    #last-paragraph {
+        font-size: xx-small;
+        text-decoration: underline;
+    font-style: italic;
+    }
+
+    input[placeholder] {
+background-color: yellow;
+    }
+
+    
+    input[placeholder="first name"] {
+        background-color: yellow;
+        border: 3px dashed;
+            }
+
+            a {
+color: yellow;
+            }
+ a:visited {
+                color: red;
+            }
+            a:hover {
+                color: green;
+                font-size: x-large;
+            }
+
+p::first-line{
+    background-color:blueviolet;
+}
+
+            p::first-letter{
+                font-size: x-large;
+                color: cyan;
+            }
+
+           span {
+            color: brown;
+           }  
+           
+           p.cool-design {
+        text-decoration: underline;
+    }
+
+html, body {
+    margin: 0;
+        padding: 0;
+}
+
+p, a {
+    color:black
+}
+
+p > a {
+    border: 3px dashed grey;
+}

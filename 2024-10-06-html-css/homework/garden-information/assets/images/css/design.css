@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(118, 206, 118);
+}
+
+html, table {
+    color: white;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-decoration: underline ;
+}

@@ -1,0 +1,107 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, rgb(215, 150, 106), white);
+  border: 1px solid black;
+  height: 100%; /* חשוב למלא את כל הגובה */
+}
+
+.container {
+  display: grid;
+  height: 100vh; /* למלא את כל גובה המסך */
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-columns: 1fr, 1fr;
+}
+
+.head {
+  font-size: xx-large;
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+  border: 1px solid black;
+  font-weight: bold; /* מדגיש את הכותרת */
+  text-align: center;
+  padding-top: 5%;
+}
+
+.menu {
+  grid-row: 2;
+  grid-column: 1;
+  border: 1px solid black;
+}
+
+a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  /* padding: 40%; */
+}
+
+.main {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  border: 1px solid black;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.first, .second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+img {
+    width: 175px; /* קבע רוחב אחיד לכל התמונות */
+    height: 175px; /* קבע גובה אחיד לכל התמונות */
+    object-fit: cover; /* שומר על יחס התמונה */
+    margin: 5px; /* מוסיף מרווחים בין התמונות */
+  }
+
+p {
+  padding: 4%;
+}
+
+iframe {
+  padding-top: 3%; 
+  padding-left: 25%;
+}
+
+.footer {
+  grid-row: 3 / 4;
+  grid-column: 1 / 3;
+  border: 1px solid black;
+  /* display: flex;
+  align-items: center; */
+  text-align: center;
+}
+
+table {
+    border: 1px solid black;
+   text-align: center;
+    margin-top: 100px;
+    margin-left: 350px;
+    width: 500px;
+    height: 150px;
+}
+
+button {
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+.animal {
+    color: rgb(41, 137, 105);
+}
+
+

@@ -1,0 +1,44 @@
+html {
+    background-color: rgb(124, 245, 245);
+}
+
+h1 {
+    text-align: center;
+}
+
+.talk {
+    text-align: right;
+}
+
+.container {
+    text-align: center; /* Centers inline elements like images */
+}
+
+
+.container2 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.melel {
+    text-align: center;
+    margin-top: 500px; /* Optional spacing */
+}
+
+.contact{
+    margin-right:100px ;
+}
+.animals{
+    margin-right: 100px;
+}
+table {
+    margin-left: 1640px; /* Center the table */
+  text-align: right;
+}
+
+td {
+  
+    border: none; /* Optional: Remove borders if not needed */
+}
+
