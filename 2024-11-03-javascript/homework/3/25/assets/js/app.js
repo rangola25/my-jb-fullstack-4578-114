@@ -1,13 +1,12 @@
 let num = +prompt('please enter a number:');
 let help = 0;
-let singularity = 0;
-while (num >= 1 || num <= -1) {
-     singularity = num % 10;
-     num = num / 10;
-     num = num - (singularity/10);
+let singularity = num;
+while (singularity >= 1 || singularity <= -1) {
+     singularity = singularity / 10;
+     singularity = parseInt(singularity);
      help++;
 };
-document.write("The number of the digits: " + help);
+document.write("The number " + num + " have " + help + " digits");
 
 // let avg = 0;
 // let i = 0;
