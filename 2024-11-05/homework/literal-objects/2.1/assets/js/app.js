@@ -1,13 +1,13 @@
-const rectangle = {
- length: 10,
- height: 5,
- color: 'blue',
- X: '0-10',
- Y: '0-5',
+const employee = {
+ firstName: 'Ran',
+ lastName: 'Golani',
+ salary: 100000,
+ email: 'rango2001@gmail.com',
+ tel: '054-7697900',
 };
 
-    document.write(`The rectangle length is: ${rectangle.length} <br>`);
-    document.write(`The rectangle height is: ${rectangle.height} <br>`);
-    document.write(`The rectangle color is: ${rectangle.color} <br>`);
-    document.write(`The rectangle X is: ${rectangle.X} <br>`);
-    document.write(`The rectangle y is: ${rectangle.Y} <br>`);
+    document.write(`The employee first name is: ${employee.firstName} <br>`);
+    document.write(`The employee last name is: ${employee.lastName} <br>`);
+    document.write(`The employee salary is: ${employee.salary} <br>`);
+    document.write(`The employee email is: ${employee.email} <br>`);
+    document.write(`The employee tel is: ${employee.tel} <br>`);
