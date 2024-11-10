@@ -16,7 +16,6 @@
 
 let num = +prompt('Please enter your number');
 for (let i = 1; i <= num; i++) {
-  let y = i;
   
   // Print spaces before the numbers
   for (let z = 1; z <= num - i; z++) {
