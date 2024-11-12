@@ -1,63 +1,36 @@
-const mira = {
-    name: 'mira',
-    age: 22,
-    gender: 'female',
-    city: 'Petch Tiqwa',
-}
+const cars = [
+    {
+    model: 'volvo',
+    year: 1998,
+    color: 'gray'
+},
 
-const yoav = {
-    name: 'Yoav',
-    age: 22,
-    gender: 'male',
-    city: 'Herzliya',
-}
+  {
+    model: 'reno',
+    year: 2007,
+    color: 'black'
+},
 
-const beery = {
-    name: 'Beery',
-    age: 18,
-    gender: 'male',
-    city: 'Holon',
+ {
+    model: 'suzuki',
+    year: 2024,
+    color: 'blue'
 }
+]
 
-const osher = {
-    name: 'Osher',
-    age: 22,
-    gender: 'male',
-    city: 'Givat Shmuel',
-}
+// 1.1
+// console.log(cars[0])
+// console.log(cars[1])
+// console.log(cars[2])
 
-const friends = [mira, yoav, beery, osher]
+// 1.2
+for (const property in cars) {
+    console.log(JSON.stringify(cars[property]));
+    };
 
 // for(const friend of friends) {
-//     console.log(`${friend.name} is my friend`)
+//     console.log(`properties of ${friend.name}`)
+//     for(const property in friend) {
+//         console.log(`${property} value is ${friend[property]}`)
+//     }
 // }
-
-for(const friend of friends) {
-    console.log(`properties of ${friend.name}`)
-    for(const property in friend) {
-        console.log(`${property} value is ${friend[property]}`)
-    }
-}
-
-friends.splice(1,1)
-
-for(const friend of friends) {
-    console.log(`${friend.name} is my friend`)
-}
-
-const musicBands = [
-    {
-    name: 'Nirvana',
-     style: 'Rock'
-},
- {
-    name: 'Beatles',
-     style: 'Rock'
-    },
-     {
-        name: 'Meshina',
-         style: 'Israeli'
-        }
-    ]
- 
-    console.log(musicBands)
