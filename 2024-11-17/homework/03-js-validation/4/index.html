@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js"></script> 
+</head>
+<body>
+    <form onsubmit="validate(event)" action="">
+    <label for="firstName">FIrst name:</label>
+    <input type="text" id="firstName" placeholder="Please enter your first name" minlength="2" maxlength="30">
+    <br><br>
+    <span id="error"></span>
+    <br><br>
+
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" placeholder="Please enter your first name" minlength="2" maxlength="30">
+    <br><br>
+    <span id="error2"></span>
+    <br><br>
+    <button>Send</button>
+</form>
+</body>
+</html>
