@@ -24,7 +24,6 @@ function generateHTML(data) {
 function renderHTML(newHTML) {
     const carsContainer = document.getElementById('carsContainer')
     carsContainer.innerHTML += newHTML
-
 }
 
 function clearForm() {
@@ -35,8 +34,8 @@ function clearForm() {
     const carForm = document.getElementById('carForm')
     carForm.reset()
 
-    const carName = document.getElementById('carName')
-    carName.focus()
+    const carNameInput = document.getElementById('carName')
+    carNameInput.focus()
 }
 
 function saveToStoarge(carObject) {
@@ -44,7 +43,7 @@ function saveToStoarge(carObject) {
 
     let carsArray;
     if(!currentCarsInStoargeJSON) {
-        carsArray - []
+        carsArray = []
     } else {
         carsArray = JSON.parse(currentCarsInStoargeJSON)
     }
@@ -67,7 +66,7 @@ function loadCarsFromaLocalStoarge() {
     if(carsJSON) {
         const cars = JSON.parse(carsJSON)
         for (const car of cars) {
-            const newHTML = generateHTML(cars)
+            const newHTML = generateHTML(car)
             renderHTML(newHTML)
         }
     }
