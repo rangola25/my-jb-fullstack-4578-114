@@ -1,0 +1,47 @@
+ /* Rainbow background on the left and right sides */
+ .rainbow-background {
+    background: linear-gradient(to top, red, orange, yellow, green, blue, indigo, violet);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 5%;
+    z-index: -1;
+}
+
+.rainbow-left {
+    left: 0;
+}
+
+.rainbow-right {
+    right: 0;
+}
+
+/* Main container using flex for side-by-side layout */
+.content-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-content,
+.table-container {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 10px;
+}
+
+/* Make the button full width in smaller devices */
+.btn-block {
+    width: 100%;
+}
+
+/* Make the table take full width of its container */
+.table-container {
+    max-width: 800px;
+    width: 100%;
+}

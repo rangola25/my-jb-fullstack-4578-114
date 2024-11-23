@@ -12,18 +12,22 @@ function validate(event) {
     if(!firstName) {
         alert(`חסר שם פרטי`)
         firstNameInput.style.background = 'pink'
+        messageInput.style.background = 'white'
+        lastNameInput.style.background = 'white'
     } else
 
     if(!lastName) {
         alert(`חסר שם משפחה`)
         lastNameInput.style.background = 'pink'
         firstNameInput.style.background = 'white'
+        messageInput.style.background = 'white'
     } else
 
     if(!message) {
         alert(`חסר הודעה`)
         messageInput.style.background = 'pink'
         lastNameInput.style.background = 'white'
+        firstNameInput.style.background = 'white'
     } else {
         window.location.href = 'save.html';
 
