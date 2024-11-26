@@ -39,6 +39,10 @@ function saveToStoarge(colorObject) {
 
     colorsArray.push(colorObject)
     localStorage.setItem('colors', JSON.stringify(colorsArray))
+
+    let p = document.getElementById('p')
+    let count = JSON.parse(localStorage.getItem('colors')).length
+    p.textContent = ` The amount of the colors in the table: ${count}`;
 }
 
 function addCarToTable(event) {
