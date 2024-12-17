@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User Location</title>
+</head>
+<body>
+
+    <h1>User Location</h1>
+
+    <!-- Spans to display Latitude and Longitude -->
+    <p>Latitude: <span id="latitude">Loading...</span></p>
+    <p>Longitude: <span id="longitude">Loading...</span></p>
+
+    <button onclick="getUserLocation()">Get Location</button>
+
+    <script>
+        "use strict";
+
+        // פונקציה לקבלת המיקום של המשתמש
+        const getUserLocation = () => {
+            if (navigator.geolocation) {
+                // אם יש תמיכה ב-Geolocation
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // אם המיקום נמצא בהצלחה
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        // הצגת המיקום ב-<span>
+                        document.getElementById('latitude').textContent = latitude;
+                        document.getElementById('longitude').textContent = longitude;
+                    },
+                    (error) => {
+                        // אם הייתה בעיה בקבלת המיקום
+                        console.error('Error getting location: ', error);
+                        alert('Could not get location. Please allow location access.');
+                    }
+                );
+            } else {
+                // אם אין תמיכה ב-Geolocation
+                alert('Geolocation is not supported by this browser.');
+            }
+        };
+    </script>
+
+</body>
+</html>
