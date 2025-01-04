@@ -10,33 +10,53 @@
     }
 
     const generateAmountInAlbumHTML = photos => {
-        const newAmount = photos
-            .reduce((cumulative, current) => {
-                const { albumId } = current
-
-            let existingObjectIndex = cumulative.findIndex(photo => photo.albumId === current.albumId)
-            if(existingObjectIndex === -1) {
-                cumulative.push({
-                    albumId,
-                    id: 0,
-                })
-                existingObjectIndex = cumulative.findIndex(photo => photo.albumId === current.albumId)
-            }
-            console.log(existingObjectIndex)
-            cumulative[existingObjectIndex].id += 1
-            return cumulative
-            }, [])
-            .map(photo => { 
-                 return `
-                <tr>
-                    <td>${photo.albumId}</td>
-                    <td>${photo.id}</td>
-                </tr>
-                `
-            })
-            .reduce((cumulative, current) => cumulative + current, '')
+        const albumAmount = [...new Set(photos.map(photo => photo.albumId))]
+        const result = albumAmount
+        .map(albumId => ({
+            albumId,
+            amount: photos.filter(photo => photo.albumId === albumId).length
+        })
+        )
+        .map(photo => { 
+            return `
+            <tr>
+                <td>${photo.albumId}</td>
+                <td>${photo.amount}</td>
+            </tr>
+            `
+        })
+        .reduce((cumulative, current) => cumulative + current, '')
             
-        return newAmount
+        return result
+
+
+        // const newAmount = photos
+        //     .reduce((cumulative, current) => {
+        //         const { albumId } = current
+
+        //     let existingObjectIndex = cumulative.findIndex(photo => photo.albumId === current.albumId)
+        //     if(existingObjectIndex === -1) {
+        //         cumulative.push({
+        //             albumId,
+        //             id: 0,
+        //         })
+        //         existingObjectIndex = cumulative.findIndex(photo => photo.albumId === current.albumId)
+        //     }
+        //     console.log(existingObjectIndex)
+        //     cumulative[existingObjectIndex].id += 1
+        //     return cumulative
+        //     }, [])
+        //     .map(photo => { 
+        //          return `
+        //         <tr>
+        //             <td>${photo.albumId}</td>
+        //             <td>${photo.id}</td>
+        //         </tr>
+        //         `
+        //     })
+        //     .reduce((cumulative, current) => cumulative + current, '')
+            
+        // return newAmount
     }
 
     const generateHTML = photos => {

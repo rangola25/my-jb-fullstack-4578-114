@@ -16,7 +16,7 @@
             .map(user => parseInt(user.address.geo.lat)) 
             // console.log(averageLatitude)
             .reduce((acc, lat) => acc + lat, 0)  / totalUsers  
-        
+
         const averageLongitude = users
             .map(user => parseInt(user.address.geo.lng)) 
             .reduce((acc, lat) => acc + lat, 0)  / totalUsers  
@@ -47,7 +47,8 @@
              // Update count for the domain extension
              acc[domainExtension] = (acc[domainExtension] || 0) + 1;
              return acc;
-         }, {});  // Initial accumulator is an empty object
+         }, {});  // Initia
+         // l accumulator is an empty object
 
      // Generate the HTML for displaying the domain counts
      return Object.entries(domainCounts)

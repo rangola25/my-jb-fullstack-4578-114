@@ -1,0 +1,54 @@
+section {
+    display: none
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.switch {
+    display: flex;
+    justify-content: end;
+}
+
+#spinner{
+    display: none; 
+}
+
+.about {
+    text-align: center;
+}
+
+.aboutRan {
+    display: flex; /* Flexbox layout to align items horizontally */
+    align-items: flex-start; /* Align image and content at the top */
+    gap: 20px; /* Space between the image and text */
+}
+
+.ranPicture {
+    width: 300px; /* Set the image width to 300px */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: make the image circular */
+}
+
+.text-content {
+    max-width: 600px; /* Optional: limit the width of the text */
+}
+
+.aboutRan h3 {
+    margin-top: 0; /* Remove top margin from h3 */
+}
+
+.aboutRan p {
+    line-height: 1.6; /* Improve readability of the paragraphs */
+    margin-bottom: 10px; /* Space between paragraphs */
+}
+
+
+/* #moreThanFive > button {
+    display: flex;
+    align-items: flex-end;
+} */

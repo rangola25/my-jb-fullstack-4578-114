@@ -1,0 +1,36 @@
+.buttonClass {
+  display: flex;
+  justify-content: center;
+}
+
+#allDivs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.div1, .div2 {
+  width: 140px;
+  height: 140px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.div1 {
+  background-color: red;
+}
+
+.div2 {
+  background-color: blue;
+}
+
+#button1 {
+  background-color: red;
+}
+
+#button2 {
+  background-color: blue;
+}
