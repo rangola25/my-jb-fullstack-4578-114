@@ -1,0 +1,56 @@
+section {
+    display: none
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.switch {
+    display: flex;
+    justify-content: end;
+}
+
+#spinner{
+    display: none; 
+}
+
+.spinner-border{
+    display: none; 
+}
+
+.about {
+    text-align: center;
+}
+
+.aboutRan {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 20px; 
+    justify-content: center;
+}
+
+.ranPicture {
+    width: 300px; 
+    height: auto;
+    border-radius: 50%; 
+}
+
+.text-content {
+    max-width: 600px; 
+}
+
+.aboutRan h3 {
+    margin-top: 0; 
+}
+
+.aboutRan p {
+    line-height: 1.6; 
+    margin-bottom: 10px; 
+}
+
+
+

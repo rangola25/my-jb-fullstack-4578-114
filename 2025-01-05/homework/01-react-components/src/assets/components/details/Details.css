@@ -1,0 +1,13 @@
+.details {
+    border: 4px solid black;
+    margin: 20px;
+}
+
+.photo {
+    display: flex;
+    justify-content: center;
+}
+
+.photo img {
+    width: 200px;
+}

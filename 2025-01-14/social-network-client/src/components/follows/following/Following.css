@@ -1,0 +1,11 @@
+.Following {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr;
+}
+
+.Following > h3 {
+    grid-row: 1;
+    grid-column: 1 / 3;
+    text-align: center;
+}

@@ -1,0 +1,5 @@
+.Structure {
+    display: grid;
+    grid-template-rows: 3fr;
+    grid-template-columns: 1fr 1fr;
+}
