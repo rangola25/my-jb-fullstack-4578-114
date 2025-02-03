@@ -15,15 +15,15 @@
     grid-row: 4;
 }
 
-.Layout > aside:nth-child(0) {
+.Layout > aside > nav {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2 span 2;
 }
 
-.Layout > aside:nth-child(1) {
+/* .Layout > aside:nth-child(1) {
     grid-column: 1;
     grid-row: 3;
-}
+} */
 
 .Layout > main {
     grid-column: 2;
@@ -35,6 +35,11 @@
     border: 1px dashed lightcoral;
 }
 
-.Layout, .Footer {
+/* .Layout, .Footer {
     background-color: #76b1b9;
+} */
+
+.nav {
+    display: flex;
+    flex-direction: column;
 }
