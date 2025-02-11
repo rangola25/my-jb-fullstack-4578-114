@@ -8,6 +8,7 @@
         "port": 3306,
         "username": "root",
         "password": "",
-        "database": "twitter"
+        "database": "twitter",
+        "sync": "{ force: true }"
     }
 }
