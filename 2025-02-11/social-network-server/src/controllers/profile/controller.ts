@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import User from "../../models/user";
 import Post from "../../models/post";
 import postIncludes from "../common/post-includes";
+import TwitterError from "../../errors/twitter-error";
 
 export async function getProfile(
   req: Request,
@@ -47,11 +48,10 @@ export async function deletePost(
       where: { id },
     });
 
-    if (deletedRows === 0)
-      return next({
-        status: 404,
-        message: "the post you were trying to delete does not exist",
-      });
+    if (deletedRows === 0) return next(new TwitterError(
+        404,
+        "the post you were trying to delete does not exist"
+       ));
 
     res.json({
       success: true,

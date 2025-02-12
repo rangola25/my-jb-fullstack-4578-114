@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import User from "../../models/user";
 import Follow from "../../models/follow";
 import { col } from "sequelize";
+import TwitterError from "../../errors/twitter-error";
 
 export async function getFollowers(
     req: Request,
@@ -73,12 +74,12 @@ export async function getFollowers(
           const isUnfollowed = await Follow.destroy({
             where: { follower_id, followee_id },
           });
-          if (isUnfollowed === 0)
-            return next({
-              status: 404,
-              message: "the unfollow you were trying to do, does not exist",
-            });
-      
+          
+          if (!isUnfollowed) return next(new TwitterError(
+            404,
+            'the unfollow you were trying to do, does not exist'
+        ))
+            
           res.json({
             success: true,
           });

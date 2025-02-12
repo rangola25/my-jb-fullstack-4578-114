@@ -27,7 +27,6 @@ const app = express();
   app.use('/feed', feedRouter)
   app.use('/auth', authRouter)
 
-
   app.use(notFound)
 
   app.use(errorLogger)
