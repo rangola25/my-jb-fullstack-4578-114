@@ -2,7 +2,10 @@ import { NextFunction, Request, Response } from "express";
 import User from "../../models/user";
 import Post from "../../models/post";
 import postIncludes from "../common/post-includes";
-import TwitterError from "../../errors/twitter-error";
+import AppError from "../../errors/twitter-error";
+import { StatusCodes } from "http-status-codes";
+import { JwtPayload, verify } from "jsonwebtoken";
+import jwtHeaders from "../common/jwt";
 
 export async function getProfile(
   req: Request,
@@ -10,7 +13,7 @@ export async function getProfile(
   next: NextFunction
 ) {
   try {
-    const userId = "1230ae30-dc4f-4752-bd84-092956f5c633";
+    const userId = await jwtHeaders( req, res, next );
 
     const user = await User.findByPk(userId, {
       include: [
@@ -48,8 +51,8 @@ export async function deletePost(
       where: { id },
     });
 
-    if (deletedRows === 0) return next(new TwitterError(
-        404,
+    if (deletedRows === 0) return next(new AppError(
+        StatusCodes.NOT_FOUND,
         "the post you were trying to delete does not exist"
        ));
 
@@ -67,7 +70,7 @@ export async function createPost(
   next: NextFunction
 ) {
   try {
-    const userId = "1230ae30-dc4f-4752-bd84-092956f5c633";
+    const userId = await jwtHeaders( req, res, next );
 
     const post = await Post.create({ ...req.body, userId });
     await post.reload(postIncludes);
