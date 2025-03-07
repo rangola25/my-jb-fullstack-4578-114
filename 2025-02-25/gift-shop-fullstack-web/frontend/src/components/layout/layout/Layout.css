@@ -1,0 +1,27 @@
+.Layout {
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    height: 100vh; 
+    grid-template-columns: 1fr; 
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.Layout > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1; 
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+}
+
+.Layout > main {
+    grid-row: 2; 
+    overflow: auto;
+    align-items: center;
+}
+
+.Layout > * {
+    border: 1px dashed rgb(57, 137, 147);
+}

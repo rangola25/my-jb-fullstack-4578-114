@@ -1,0 +1,45 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;  
+    gap: 20px; 
+    margin: 20px 0;
+}
+
+.List {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.selectCategories {
+    font-size: 18px; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    border: 2px solid #3498db; 
+    background-color: #f0f8ff; 
+    color: #333; 
+    transition: all 0.3s ease; 
+    width: 200px; 
+    margin-bottom: 20px;
+}
+
+.selectCategories:hover {
+    background-color: #e0f7fa; 
+    border-color: #2980b9; 
+}
+
+.selectCategories:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.8); 
+    border-color: #2980b9; 
+}
+
+.selectCategories option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff; 
+    color: #333; 
+}

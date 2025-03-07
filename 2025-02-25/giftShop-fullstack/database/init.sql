@@ -1,3 +1,0 @@
--- Paste here the export from phpmyadmin
--- it should be an .sql file
--- containing "create table" commands etc.

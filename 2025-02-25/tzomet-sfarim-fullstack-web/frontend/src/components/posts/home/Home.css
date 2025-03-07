@@ -1,0 +1,12 @@
+.giftShopImage {
+    justify-self: center;
+    align-items: center;
+}
+
+img {
+    height: 800px;
+}
+
+.home {
+    margin-top: 3%;
+}

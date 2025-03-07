@@ -1,0 +1,45 @@
+
+.Card {
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+    width: 300px;
+    margin: 20px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.Card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /
+}
+
+
+.Card h4 {
+    font-size: 1.5rem; 
+    color: #333; 
+    margin-bottom: 15px; 
+    font-weight: bold; 
+    text-align: center; 
+}
+
+.Card p {
+    font-size: 1rem; 
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.6; 
+}
+
+
+.Card p:last-child {
+    font-weight: bold; 
+    color: #e74c3c; 
+    font-size: 1.1rem; 
+}
+
+.Card p:nth-of-type(1),
+.Card p:nth-of-type(2),
+.Card p:nth-of-type(3) {
+    color: #333; 
+}

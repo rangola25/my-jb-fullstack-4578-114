@@ -1,0 +1,36 @@
+.Layout {
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    height: 100vh; 
+    grid-template-columns: 1fr; 
+    font-family: 'Arial', sans-serif;
+}
+
+.Layout > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1; 
+}
+
+.Layout > main {
+    grid-row: 2; 
+    overflow: auto;
+    align-items: center;
+}
+
+.Layout > * {
+    border: 1px dashed rgb(57, 137, 147);
+}
+
+header {
+    background: linear-gradient(to bottom, #d7b38c, #8e5a3b);
+}
+
+
+main {
+    background: linear-gradient(to bottom, #d7b38c, #8e5a3b);
+    padding: 40px; 
+    min-height: 100vh; 
+    box-sizing: border-box;
+}

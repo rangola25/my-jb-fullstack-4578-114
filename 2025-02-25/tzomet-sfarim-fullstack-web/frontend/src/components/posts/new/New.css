@@ -1,0 +1,82 @@
+/* General Form Styling */
+.New {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+/* Select Styling */
+select, input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #4e9ef1;
+    box-shadow: 0 0 5px rgba(78, 158, 241, 0.6);
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Button Styling */
+.New > form > button {
+    padding: 1rem;
+    background-color: #4e9ef1;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #3578b6;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #888;
+}
+
+/* Select options and disabled styling */
+select option {
+    padding: 0.8rem;
+}
+
+select option:disabled {
+    color: #aaa;
+}
+
+/* Add spacing for individual input fields */
+input[type="number"] {
+    width: 100%;
+}

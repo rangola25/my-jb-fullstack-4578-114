@@ -1,0 +1,30 @@
+.List {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
+}
+
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
+    width: 100%;
+}
+
+.Card {
+    width: calc(33.33% - 16px);
+    box-sizing: border-box; 
+}
+
+
+@media (max-width: 768px) {
+    .Card {
+        width: calc(50% - 16px); 
+    }
+}
+
+@media (max-width: 480px) {
+    .Card {
+        width: 100%; 
+    }
+}
