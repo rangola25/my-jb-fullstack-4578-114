@@ -1,7 +1,7 @@
 {
     "app": {
         "port": "3000",
-        "name": "giftShop dev",
+        "name": "tzomet-sfarim dev",
         "secret": "MySecret",
         "jwtSecret": "MyJwtSecret"
     },
@@ -10,7 +10,7 @@
         "port": 3306,
         "username": "root",
         "password": "",
-        "database": "gift_shop"
+        "database": "tzomet_sfarim"
     },
     "sequelize": {
         "logging": true,

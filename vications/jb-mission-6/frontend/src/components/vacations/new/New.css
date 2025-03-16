@@ -1,0 +1,50 @@
+.NewVacationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.NewVacation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+
+}
+
+.NewVacation h1 {
+    color: dodgerblue;
+    size: 40px;
+}
+
+.NewVacation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.NewVacation  button {
+    color: white;
+    background-color: dodgerblue;
+    border: 0px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+
+.NewVacation input {
+    height: 20px;
+}
+
+.NewVacation span {
+    text-align: center;
+}
+
+.NewVacation form > label {
+    color: gray;
+}

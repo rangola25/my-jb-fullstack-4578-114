@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
   database:
-    container_name: sn-compose-database-gifts-shop
+    container_name: tzomet-sfarim-shop
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
-      - MYSQL_DATABASE=gift_shop
+      - MYSQL_DATABASE=tzomet_sfarim
       - MYSQL_TCP_PORT=3306
     ports:
       - "3306:3306"
@@ -18,7 +16,7 @@ services:
       start_period: 60s
 
   backend:
-    container_name: sn-compose-backend-gifts-shop
+    container_name: tzomet-sfarim-shop-backend
     ports:
       - 3000:3000
     environment:
@@ -29,7 +27,7 @@ services:
         condition: service_healthy
 
   frontend:
-    container_name: sn-compose-frontend-gifts-shop
+    container_name: tzomet-sfarim-shop-frontend
     ports:
       - 5173:80
     build: ./frontend

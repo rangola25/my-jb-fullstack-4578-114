@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Mar 03, 2025 at 05:04 PM
+-- Generation Time: Mar 07, 2025 at 08:46 PM
 -- Server version: 9.2.0
 -- PHP Version: 8.2.27
 
@@ -18,93 +18,92 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gift_shop`
+-- Database: `tzomet_sfarim`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presents`
+-- Table structure for table `authors`
 --
 
-CREATE TABLE `presents` (
-  `code` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `target_code` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `present_name` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `present_description` varchar(120) NOT NULL,
+CREATE TABLE `authors` (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `first_name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
+('7fcb508f-fb8d-11ef-8790-0242ac110002', 'J.K.', 'Rowling', '2025-03-07 19:50:43', '2025-03-07 19:50:43'),
+('7fcb54df-fb8d-11ef-8790-0242ac110002', 'George ', 'Orwell', '2025-03-07 19:50:43', '2025-03-07 19:50:43'),
+('88ec1056-fb8d-11ef-8790-0242ac110002', 'Ernest ', 'Hemingway', '2025-03-07 19:51:03', '2025-03-07 19:51:03'),
+('88ec1bfc-fb8d-11ef-8790-0242ac110002', 'F. Scott', 'Fitzgerald', '2025-03-07 19:51:03', '2025-03-07 19:51:03'),
+('8cb41c3b-fb8d-11ef-8790-0242ac110002', 'Leo ', 'Tolstoy', '2025-03-07 19:51:18', '2025-03-07 19:51:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `author_id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount_of_pages` int NOT NULL,
   `price` int NOT NULL,
-  `discount` int NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `presents`
+-- Dumping data for table `books`
 --
 
-INSERT INTO `presents` (`code`, `target_code`, `present_name`, `present_description`, `price`, `discount`, `created_at`, `updated_at`) VALUES
-('0e70f890-f547-11ef-9fa3-0242ac110002', '783481f1-f546-11ef-9fa3-0242ac110002', 'Noise-Canceling Headphones', 'High-quality wireless headphones that provide superior sound and noise', 129, 25, '2025-02-27 20:10:20', '2025-02-27 20:10:20'),
-('0e71013a-f547-11ef-9fa3-0242ac110002', '75c95922-f546-11ef-9fa3-0242ac110002', 'Bluetooth Speaker', 'Portable waterproof speaker with exceptional sound quality for indoor and outdoor use.', 59, 15, '2025-02-27 20:10:20', '2025-02-27 20:10:20'),
-('19623727-501c-41ab-86c0-363bd41bec4b', '75c94bfd-f546-11ef-9fa3-0242ac110002', 'Supergoal', 'The offical cards of the first soccer league in Israel', 100, 50, '2025-03-02 21:59:35', '2025-03-02 21:59:35'),
-('4969aea4-7d57-4e4c-8360-868eb606f12a', '75c94bfd-f546-11ef-9fa3-0242ac110002', 'Toy car', 'mini car how drives on the floor of your house with funny noise', 175, 45, '2025-03-02 22:15:57', '2025-03-02 22:15:57'),
-('53bca660-fa54-44ac-83bd-6f76f9841bf0', '75c95922-f546-11ef-9fa3-0242ac110002', 'Hoodies', 'pants for teen', 120, 30, '2025-03-02 22:02:36', '2025-03-02 22:02:36'),
-('5586f1dc-f547-11ef-9fa3-0242ac110002', '75c94bfd-f546-11ef-9fa3-0242ac110002', 'Customizable Puzzle', 'A 500-piece puzzle with a personalized image or message.', 30, 5, '2025-02-27 20:11:43', '2025-02-27 20:11:43'),
-('55871648-f547-11ef-9fa3-0242ac110002', '783481f1-f546-11ef-9fa3-0242ac110002', 'Yoga Mat with Accessories', 'Comfortable and non-slip yoga mat, perfect for at-home or studio workouts, comes with accessories.', 45, 10, '2025-02-27 20:11:43', '2025-02-27 20:11:43'),
-('88b1a4f8-f547-11ef-9fa3-0242ac110002', '75c95922-f546-11ef-9fa3-0242ac110002', 'Electric Scooter', 'Eco-friendly, foldable electric scooter with high-speed performance and long battery life.', 349, 35, '2025-02-27 20:13:41', '2025-02-27 20:13:41'),
-('88b1bf55-f547-11ef-9fa3-0242ac110002', '783481f1-f546-11ef-9fa3-0242ac110002', 'Board Game – Settlers of Catan', 'A popular strategy board game where players build settlements and trade resources.', 40, 5, '2025-02-27 20:13:41', '2025-02-27 20:13:41'),
-('a4e419ed-f547-11ef-9fa3-0242ac110002', '75c94bfd-f546-11ef-9fa3-0242ac110002', 'Mini Drone with Camera', 'A compact drone with a camera for capturing aerial shots, ideal for beginners.', 79, 20, '2025-02-27 20:15:07', '2025-02-27 20:15:07'),
-('a4e434bf-f547-11ef-9fa3-0242ac110002', '783481f1-f546-11ef-9fa3-0242ac110002', 'Leather Wallet', ' A high-quality, stylish leather wallet with multiple card slots and compartments.', 45, 10, '2025-02-27 20:15:07', '2025-02-27 20:15:07'),
-('dd824522-f546-11ef-9fa3-0242ac110002', '783481f1-f546-11ef-9fa3-0242ac110002', 'Smartwatch', 'A stylish smartwatch that tracks fitness, heart rate, and notifications from your phone.', 199, 20, '2025-02-27 20:07:59', '2025-02-27 20:07:59'),
-('dd826e7d-f546-11ef-9fa3-0242ac110002', '75c94bfd-f546-11ef-9fa3-0242ac110002', 'LEGO Set – Creator 3-in-1', 'A versatile LEGO set with multiple build options, perfect for creativity and play.', 50, 10, '2025-02-27 20:07:59', '2025-02-27 20:07:59');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `target_audiences`
---
-
-CREATE TABLE `target_audiences` (
-  `code` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `type` enum('kids','teen','adults') NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `target_audiences`
---
-
-INSERT INTO `target_audiences` (`code`, `type`, `created_at`, `updated_at`) VALUES
-('75c94bfd-f546-11ef-9fa3-0242ac110002', 'kids', '2025-02-27 20:07:14', '2025-02-27 20:07:14'),
-('75c95922-f546-11ef-9fa3-0242ac110002', 'teen', '2025-02-27 20:07:14', '2025-02-27 20:07:14'),
-('783481f1-f546-11ef-9fa3-0242ac110002', 'adults', '2025-02-27 20:07:25', '2025-02-27 20:07:25');
+INSERT INTO `books` (`id`, `author_id`, `name`, `amount_of_pages`, `price`, `created_at`, `updated_at`) VALUES
+('a5c9845c-fb8d-11ef-8790-0242ac110002', '7fcb54df-fb8d-11ef-8790-0242ac110002', 'Harry Potter and the Sorcerer\'s Stone', 309, 11, '2025-03-07 19:51:30', '2025-03-07 19:51:30'),
+('a5c98b7b-fb8d-11ef-8790-0242ac110002', '7fcb54df-fb8d-11ef-8790-0242ac110002', 'Harry Potter and the Deathly Hallow', 607, 15, '2025-03-07 19:51:30', '2025-03-07 19:51:30'),
+('c48e3602-fb8d-11ef-8790-0242ac110002', '7fcb508f-fb8d-11ef-8790-0242ac110002', '1984', 328, 9, '2025-03-07 19:52:31', '2025-03-07 19:52:31'),
+('c48e3d54-fb8d-11ef-8790-0242ac110002', '7fcb508f-fb8d-11ef-8790-0242ac110002', 'Animal Farm', 112, 7, '2025-03-07 19:52:31', '2025-03-07 19:52:31'),
+('d479dc52-fb8d-11ef-8790-0242ac110002', '8cb41c3b-fb8d-11ef-8790-0242ac110002', 'The Old Man and the Sea', 132, 8, '2025-03-07 19:52:58', '2025-03-07 19:52:58'),
+('d479eafa-fb8d-11ef-8790-0242ac110002', '8cb41c3b-fb8d-11ef-8790-0242ac110002', 'A Farewell to Arms ', 355, 13, '2025-03-07 19:52:58', '2025-03-07 19:52:58'),
+('e63d9d40-fb8d-11ef-8790-0242ac110002', '88ec1bfc-fb8d-11ef-8790-0242ac110002', 'The Great Gatsby', 180, 10, '2025-03-07 19:53:27', '2025-03-07 19:53:27'),
+('e63da49e-fb8d-11ef-8790-0242ac110002', '88ec1bfc-fb8d-11ef-8790-0242ac110002', 'Tender Is the Night', 304, 14, '2025-03-07 19:53:27', '2025-03-07 19:53:27'),
+('f89296c7-fb8d-11ef-8790-0242ac110002', '88ec1056-fb8d-11ef-8790-0242ac110002', 'War and Peace', 1225, 20, '2025-03-07 19:53:55', '2025-03-07 19:53:55'),
+('f892a351-fb8d-11ef-8790-0242ac110002', '88ec1056-fb8d-11ef-8790-0242ac110002', 'Anna Karenina', 864, 15, '2025-03-07 19:53:55', '2025-03-07 19:53:55');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `presents`
+-- Indexes for table `authors`
 --
-ALTER TABLE `presents`
-  ADD PRIMARY KEY (`code`),
-  ADD KEY `target_code` (`target_code`);
+ALTER TABLE `authors`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `target_audiences`
+-- Indexes for table `books`
 --
-ALTER TABLE `target_audiences`
-  ADD PRIMARY KEY (`code`);
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_id` (`author_id`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `presents`
+-- Constraints for table `books`
 --
-ALTER TABLE `presents`
-  ADD CONSTRAINT `presents_ibfk_1` FOREIGN KEY (`target_code`) REFERENCES `target_audiences` (`code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `books`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

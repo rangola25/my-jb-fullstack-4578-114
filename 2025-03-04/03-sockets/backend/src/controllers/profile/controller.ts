@@ -6,6 +6,7 @@ import AppError from "../../errors/twitter-error";
 import { StatusCodes } from "http-status-codes";
 import { JwtPayload, verify } from "jsonwebtoken";
 import jwtHeaders from "../common/jwt";
+import socket from "../../io/io";
 
 export async function getProfile(
   req: Request,
@@ -82,6 +83,7 @@ export async function createPost(
     const post = await Post.create(createParams);
     await post.reload(postIncludes);
     res.json(post);
+    socket.emit('newPost', post)
   } catch (e) {
     next(e);
   }

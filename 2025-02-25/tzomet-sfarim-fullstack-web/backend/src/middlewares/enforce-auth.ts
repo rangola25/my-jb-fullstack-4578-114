@@ -3,7 +3,7 @@ import AppError from "../errors/app-error";
 import { StatusCodes } from "http-status-codes";
 import { verify } from "jsonwebtoken";
 import config from 'config'
-import User from "../models/targetAudience";
+import User from "../models/author";
 
 declare global {
     namespace Express {

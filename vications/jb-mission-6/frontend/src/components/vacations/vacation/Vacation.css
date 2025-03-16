@@ -1,0 +1,84 @@
+/* Wrapper for all cards */
+.card-container-wrapper {
+    display: flex;
+    flex-wrap: wrap;  /* Allow wrapping to next line */
+    justify-content: flex-start;
+    flex-direction: row;  /* Align items to the left */
+    gap: 20px;  /* Space between cards */
+    margin: 0 auto; /* Center the container */
+    max-width: 100%; /* Ensure the wrapper can expand to the full width */
+  }
+  
+  /* Individual card styling */
+  .card-container {
+    width: calc(33.33% - 20px); /* Makes each card take up 1/3 of the container minus the gap */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Image styling */
+  .card-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /* Destination styling */
+  .card-container span {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Date and bootstrap glyph styling */
+  .card-container p:nth-child(3) {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Description styling */
+  .card-container p:nth-child(4) {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  /* Button styling */
+  .card-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-container {
+      width: calc(50% - 20px);  /* Make cards take up 50% on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-container {
+      width: 100%;  /* Make cards take up 100% on mobile */
+    }
+  }
+  

@@ -1,0 +1,50 @@
+.EditVacationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.EditVacation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+
+}
+
+.EditVacation h1 {
+    color: dodgerblue;
+    size: 40px;
+}
+
+.EditVacation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.EditVacation button {
+    color: white;
+    background-color: dodgerblue;
+    border: 0px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+
+.EditVacation input {
+    height: 20px;
+}
+
+.EditVacation span {
+    text-align: center;
+}
+
+.EditVacation form > label {
+    color: gray;
+}

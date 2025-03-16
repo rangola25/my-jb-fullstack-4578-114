@@ -1,0 +1,12 @@
+.bookShopImage {
+    justify-self: center;
+    align-items: center;
+}
+
+.home > img {
+    height: 400px;
+}
+
+.home {
+    margin-top: 3%;
+}

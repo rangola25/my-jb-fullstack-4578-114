@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Present from "../models/present/Present";
+import Present from "../models/books/Book";
 
 interface giftsState {
     gifts: Present[]
