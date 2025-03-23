@@ -18,13 +18,13 @@ export default function Layout() {
         <div className='Layout'>
 
             {isLoggedIn && <>
-                <header>
+                <header className='Header'>
                     <Header />                
                 </header>                
-                <main>
-                    <Routing />
+                <main className='Routing'>
+                    <Routing/>
                 </main>
-                <footer>
+                <footer className='Footer'>
                     <Footer />
                 </footer>
             </>}

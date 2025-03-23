@@ -12,14 +12,19 @@ export default class User extends AuthAware {
         const response = await this.axiosInstance.get<Like[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes`)
         return response.data
     }
+
+    async getAllFollows(): Promise<Like[]> {
+        const response = await this.axiosInstance.get<Like[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/allFollows`)
+        return response.data
+    }
     
-    async addLike(id: string): Promise<boolean> {
-        const like = await this.axiosInstance.post<boolean>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/like/${id}`)
+    async addLike(userId: string, vacationId: string): Promise<boolean> {
+        const like = await this.axiosInstance.post<boolean>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/like/${vacationId}`, { userId })
         return like.data
     }
 
-    async unlike(id: string): Promise<boolean> {
-        const unlike = await this.axiosInstance.post<boolean>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/unlike/${id}`)
+    async unlike(userId: string, vacationId: string): Promise<boolean> {
+        const unlike = await this.axiosInstance.post<boolean>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/unlike/${vacationId}`, { userId })
         return unlike.data
     }
 }

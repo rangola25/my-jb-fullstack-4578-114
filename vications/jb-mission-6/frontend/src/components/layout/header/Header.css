@@ -1,15 +1,15 @@
-.Header {
+.headerContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.Header nav {
+.headerContainer nav {
     display: flex;
     flex-direction: row;
     gap: 6px;
 }
 
-.Header .active {
+.headerContainer .active {
     color: green;
 }

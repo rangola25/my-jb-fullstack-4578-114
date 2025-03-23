@@ -1,0 +1,68 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed lightgreen;
+    box-shadow: 2px;
+    padding: 4px;
+    margin: 8px;
+    border-radius: 4px;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Post {
+    animation: fadeIn 0.5s ease-out;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Post:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Post div {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+} 
+
+.title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.body {
+    font-size: larger;
+}
+
+.Post {
+    margin: 5%;
+}
+
+.Post > img {
+    height: 300px;
+}

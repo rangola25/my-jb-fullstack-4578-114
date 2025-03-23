@@ -1,0 +1,41 @@
+.Login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.SignUp form {
+    display: flex;
+    flex-direction: column;
+}
+
+.SignUp button {
+    background-color: #872e9b;
+}
+
+.Layout > .LoginOrSignUp {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 33%;
+    margin-top: 10%;
+}
+
+.Login > button {
+    width: 100%;
+}
+
+.SignUp > button {
+    width: 100%;
+}
+
+.Login > h1 {
+    text-align: center;
+}
+
+.SignUp > h1 {
+    text-align: center;
+}
+
+.Login, .SignUp {
+    margin-left: 25%;
+    margin-right: 25%;
+}

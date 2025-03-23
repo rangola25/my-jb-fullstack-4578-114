@@ -11,6 +11,8 @@ import authRouter from "./routers/auth"
 import adminRouter from "./routers/admin"
 import userRouter from "./routers/vacations"
 import followRouter from "./routers/follow"
+import fileUpload from "express-fileupload"
+import { createAppBucketIfNotExist } from "./aws/aws"
 
 const port = config.get<string>('app.port')
 const name = config.get<string>('app.name')
@@ -20,12 +22,14 @@ const app = express();
 
 (async () => {
     await sequelize.sync({ force })
+    await createAppBucketIfNotExist();
 
     // middlewares
     app.use(cors()) // allow any client to use this server
 
     app.use(json()) // a middleware to extract the post/put/patch data and save it to the request object in case the content type of the request is application/json
-
+    app.use(fileUpload())
+    
     // [ if we have auth in this app, uncomment this ]:
     app.use('/auth', authRouter)
 

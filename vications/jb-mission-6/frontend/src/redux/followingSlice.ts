@@ -3,6 +3,7 @@ import Like from "../models/like/Like";
 
 interface FollowingState {
     likes: Like[]
+    // currentUserId: string
 }
 
 const initialState: FollowingState = {
@@ -16,7 +17,7 @@ export const followingSlice = createSlice({
         init: (state, action: PayloadAction<Like[]>) => {
             state.likes = action.payload                        
         },
-        unlike: (state, action: PayloadAction<{userId: string}>) => {
+        unlike: (state, action: PayloadAction<{userId: string, vacationId: string}>) => {
             state.likes = state.likes.filter(l => l.userId !== action.payload.userId)
         },
         like: (state, action: PayloadAction<Like>) => {

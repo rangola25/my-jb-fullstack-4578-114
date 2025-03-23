@@ -19,7 +19,7 @@ export default function Header() {
     }
 
     return (
-        <div className='Header'>
+        <div className='headerContainer'>
             <div>
                 Logo
             </div>  

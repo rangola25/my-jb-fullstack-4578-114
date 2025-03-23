@@ -7,7 +7,7 @@ export async function getLikesOfTheVacations(req: Request, res: Response, next: 
     try {
       const likes = await Follow.findAll();
       
-      const vacationCount = likes.reduce((acc, like) => {
+        const vacationCount = likes.reduce((acc, like) => {
         const vacationId = like.vacationId; 
         if (acc[vacationId]) {
           acc[vacationId] += 1;
@@ -29,12 +29,23 @@ export async function getLikesOfTheVacations(req: Request, res: Response, next: 
     }
   }
 
-  export async function likeVacation(req: Request<{id: string}>, res: Response, next: NextFunction) {
+  export async function getAllFollows(req: Request, res: Response, next: NextFunction) {
+    try {
+      const likes = await Follow.findAll();
+      res.json(likes);
+    } catch (e) {
+      console.error(e);
+      next(e); 
+    }
+  }
+
+  export async function likeVacation(req: Request<{vacationId: string}>, res: Response, next: NextFunction) {
     try {
         const userId = req.userId
+        const vacationId = req.params.vacationId
         const like = await Follow.create({
             userId,
-            vacationId: req.params.id
+            vacationId
         })
         res.json(like)
     } catch(e) {
@@ -42,13 +53,14 @@ export async function getLikesOfTheVacations(req: Request, res: Response, next: 
     }
   }
 
-  export async function unlikeVacation(req: Request<{id: string}>, res: Response, next: NextFunction) {
+  export async function unlikeVacation(req: Request<{vacationId: string}>, res: Response, next: NextFunction) {
     try {
         const userId = req.userId
+        const vacationId = req.params.vacationId
         const unlike = await Follow.destroy({
             where: {
                 userId,
-                vacationId: req.params.id
+                vacationId
             }
         })
 

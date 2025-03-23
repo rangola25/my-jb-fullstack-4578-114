@@ -19,7 +19,7 @@ const force = config.get<boolean>('sequelize.sync.force')
 
 const app = express();
 
-(async () => {
+export async function start() {
   await sequelize.sync({ force })
 
   await createAppBucketIfNotExist();
@@ -43,6 +43,6 @@ const app = express();
   app.use(errorResponder)
 
   app.listen(port, () => console.log(`${name} app started on port ${port}...`))
-})()
+}
 
-
+export default app

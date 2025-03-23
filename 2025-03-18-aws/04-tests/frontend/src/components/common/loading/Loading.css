@@ -1,0 +1,19 @@
+.Loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.Loading img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.Loading p {
+    font-size: 16px;
+    color: #555;
+}

@@ -14,13 +14,21 @@ export default class Admin extends AuthAware {
     }
 
     async createVacation(draft: Draft): Promise<Vacation> {
-        const response = await this.axiosInstance.post<Vacation>(`${import.meta.env.VITE_REST_SERVER_URL}/admin/new`, draft)
+        const response = await this.axiosInstance.post<Vacation>(`${import.meta.env.VITE_REST_SERVER_URL}/admin/new`, draft, {
+        headers: {
+            "Content-Type": 'multipart/form-data'
+            }
+        })
         return response.data
     }
 
     async updateVacation(id: string, draft: Draft): Promise<Vacation> {
         const { description, destination, startDate, endDate, price, file } = draft
-        const response = await this.axiosInstance.patch<Vacation>(`${import.meta.env.VITE_REST_SERVER_URL}/admin/edit/${id}`, { description, destination, startDate, endDate, price, file })
+        const response = await this.axiosInstance.patch<Vacation>(`${import.meta.env.VITE_REST_SERVER_URL}/admin/edit/${id}`, { description, destination, startDate, endDate, price, file}, 
+            {headers: {
+                "Content-Type": 'multipart/form-data'
+                }}
+            )
         return response.data
     }
 }

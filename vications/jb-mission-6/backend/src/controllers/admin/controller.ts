@@ -22,36 +22,44 @@ export async function getSingleVacation(req: Request, res: Response, next: NextF
 }
 
 export async function editVacation(req: Request<{id: string}>, res: Response, next: NextFunction) {
-    try {
-      const vacation = await Vacation.findByPk(req.params.id);
-      const { destination ,description, startDate, endDate, price, file } = req.body;
-      vacation.destination = destination;
-      vacation.description = description;
-      vacation.startDate = startDate;
-      vacation.endDate = endDate;
-      vacation.price = price;
-
-      if(req.body.file) {
-        const { file } = req.body
-        vacation.file = file
-      }
-
-      await vacation.save();
-      res.json(vacation);
-    } catch (e) {
-      next(e);
+  try {
+    const vacation = await Vacation.findByPk(req.params.id);
+    if (!vacation) {
+        return next(new AppError(StatusCodes.NOT_FOUND, 'Vacation not found'));
     }
+
+    const { destination, description, startDate, endDate, price } = req.body;
+    const { file } = req
+    vacation.destination = destination;
+    vacation.description = description;
+    vacation.startDate = startDate;
+    vacation.endDate = endDate;
+    vacation.price = price;
+
+    if (file) {
+        vacation.file = file;
+    }
+
+    await vacation.save();
+    res.json(vacation);
+} catch (e) {
+    next(e);
+}
   }
 
   export async function createVacation(req: Request, res: Response, next: NextFunction) {
     try {
-        // if(req.imageUrl) {
-        //     const { imageUrl } = req
-        //     createParams = { ...createParams, imageUrl }
+        // const userId = req.userId
+
+        // let createParams = { ...req.body, userId }
+
+        // if(req.file) {
+        //     const { file } = req
+        //     createParams = { ...createParams, file }
         // }
 
         const vacation = await Vacation.create(req.body)
-        await vacation.reload()
+        await vacation.reload({include: [ Vacation ]})
         res.json(vacation)
         // socket.emit('newPost', post)
     } catch (e) {

@@ -28,17 +28,12 @@
     flex-direction: column;
 }
 
-.EditVacation button {
+.EditVacation  button {
     color: white;
     background-color: dodgerblue;
     border: 0px;
     height: 30px;
     border-radius: 4px;
-}
-
-
-.EditVacation input {
-    height: 20px;
 }
 
 .EditVacation span {

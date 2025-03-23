@@ -1,0 +1,38 @@
+.VacationsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+.paginationBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.Checkboxes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .Checkboxes span {
+    margin-right: 5px; 
+  }
+
+  
+  .Checkboxes input {
+    margin: 0;
+  }
