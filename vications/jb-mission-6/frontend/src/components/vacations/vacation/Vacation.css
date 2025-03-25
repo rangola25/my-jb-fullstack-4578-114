@@ -119,3 +119,24 @@
         /* Make Vacations take up 100% on mobile*/
     }
 }
+
+.Vacation {
+    position: relative; /* Ensures child elements can be positioned relative to this container */
+}
+
+.vacation-image {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Makes sure the image is behind other elements */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire div without distortion */
+}
+
+button, span, p {
+    position: relative; /* Keeps these elements in front of the image */
+    z-index: 1; /* Ensures buttons, text, etc. are above the image */
+}

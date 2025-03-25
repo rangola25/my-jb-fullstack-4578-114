@@ -3,9 +3,11 @@ import './Header.css'
 import useUsername from '../../../hooks/useUsername'
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/auth/Auth'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export default function Header() {
+
+    const isAdmin = localStorage.getItem('isAdmin') === 'true'; 
 
     const name = useUsername()
 
@@ -25,9 +27,15 @@ export default function Header() {
             </div>  
             <div>
                 <nav>
-                    {/* <NavLink to="/profile">profile</NavLink>
-                    <NavLink to="/feed">feed</NavLink>
-                    <NavLink to="/search">search</NavLink> */}
+                    {isAdmin && <>
+                        <NavLink to="/admin/vacations">Edit vacations</NavLink>
+                        <NavLink to="/admin/new">New vacation</NavLink>
+                        <NavLink to="/admin/report">Likes report</NavLink>
+                    </>}
+
+                    {/* {!isAdmin && 
+                        <NavLink to="/vacations">Vacations</NavLink>    
+                    } */}
                 </nav>
             </div>          
             <div>

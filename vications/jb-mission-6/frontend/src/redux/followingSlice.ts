@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Like from "../models/like/Like";
+import LikeDraft from "../models/like/LikeDraft";
 
 interface FollowingState {
-    likes: Like[]
+    likes: LikeDraft[]
     // currentUserId: string
 }
 
@@ -14,13 +14,13 @@ export const followingSlice = createSlice({
     name: 'following',
     initialState,
     reducers: {
-        init: (state, action: PayloadAction<Like[]>) => {
+        init: (state, action: PayloadAction<LikeDraft[]>) => {
             state.likes = action.payload                        
         },
         unlike: (state, action: PayloadAction<{userId: string, vacationId: string}>) => {
             state.likes = state.likes.filter(l => l.userId !== action.payload.userId)
         },
-        like: (state, action: PayloadAction<Like>) => {
+        like: (state, action: PayloadAction<LikeDraft>) => {
             state.likes.push(action.payload)
         }
     }

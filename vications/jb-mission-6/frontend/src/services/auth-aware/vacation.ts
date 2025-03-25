@@ -1,4 +1,5 @@
-import Like from "../../models/like/Like";
+import Follow from "../../models/like/Follow";
+import LikeDraft from "../../models/like/LikeDraft";
 import Vacation from "../../models/vacation/Vacation";
 import AuthAware from "./AuthAware";
 
@@ -8,13 +9,13 @@ export default class User extends AuthAware {
         return response.data
     }
 
-    async getAllLikes(): Promise<Like[]> {
-        const response = await this.axiosInstance.get<Like[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes`)
+    async getAllLikes(): Promise<Follow[]> {
+        const response = await this.axiosInstance.get<Follow[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes`)
         return response.data
     }
 
-    async getAllFollows(): Promise<Like[]> {
-        const response = await this.axiosInstance.get<Like[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/allFollows`)
+    async getAllFollows(): Promise<LikeDraft[]> {
+        const response = await this.axiosInstance.get<LikeDraft[]>(`${import.meta.env.VITE_REST_SERVER_URL}/likes/allFollows`)
         return response.data
     }
     

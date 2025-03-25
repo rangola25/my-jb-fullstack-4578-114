@@ -6,10 +6,10 @@ import VacationModel from '../../../models/vacation/Vacation'
 import Admin from '../../../services/auth-aware/admin'
 import { remove } from '../../../redux/vacationSlice'
 import { useEffect, useRef, useState } from 'react'
-import Like from '../../../models/like/Like'
 import User from '../../../services/auth-aware/vacation'
 import { init, like, unlike } from '../../../redux/followingSlice'
 import useUserId from '../../../hooks/useUserId'
+import LikeDraft from '../../../models/like/LikeDraft'
 
 interface VacationsProps {
     vacation: VacationModel,
@@ -33,7 +33,7 @@ export default function Vacation(props: VacationsProps): JSX.Element {
     const dispatch = useAppDispatch()
     const adminService = useService(Admin)
     const userService = useService(User)
-    const likesFromServerRef = useRef<Like[] | null>(null)
+    const likesFromServerRef = useRef<LikeDraft[] | null>(null)
     const userId = useUserId()
 
     useEffect(() => {
@@ -44,7 +44,7 @@ export default function Vacation(props: VacationsProps): JSX.Element {
     useEffect(() => {
         (async () => {
             try {
-                const likesFromServer = await userService.getAllLikes()
+                const likesFromServer = await userService.getAllFollows()
                 dispatch(init(likesFromServer))
                 likesFromServerRef.current = likesFromServer
             } catch (e) {

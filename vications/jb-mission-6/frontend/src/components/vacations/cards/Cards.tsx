@@ -47,7 +47,7 @@ export default function Vacations(): JSX.Element {
               alert(e)
           }
       })()
-  }, [dispatch, userService, vacationsRedux])
+  }, [dispatch])
 
   const [filter, setFilter] = useState<string>('all')
 
@@ -59,32 +59,32 @@ export default function Vacations(): JSX.Element {
   const likesReduxState = useSelector((state: RootState) => state.following.likes)
 
   useEffect(() => {
-      if (filter === 'all') {
-          setVacations(vacationsRedux)
-      } else if (filter === 'followed') {
+       if (filter === 'followed') {
           const followArray = likesReduxState.filter(l => userId === l.userId).map(l => l.vacationId)
-          const filteredVacations = vacations?.filter(v => followArray.includes(v.id))
+          const filteredVacations = vacationsRedux.filter(v => followArray.includes(v.id))
           if (filteredVacations?.length !== 0) {
               setVacations(filteredVacations)
           } else {
               setVacations([])  // No vacations found, set to empty array
           }
       } else if (filter === 'notStarted') {
-          const filteredVacations = vacations?.filter(v => new Date(v.startDate) > new Date())
+          const filteredVacations = vacationsRedux?.filter(v => new Date(v.startDate) > new Date())
           if (filteredVacations?.length !== 0) {
               setVacations(filteredVacations)
           } else {
               setVacations([])  // No vacations found, set to empty array
           }
       } else if (filter === 'active') {
-          const filteredVacations = vacations?.filter(v => new Date(v.endDate) > new Date() && new Date(v.startDate) < new Date())
+          const filteredVacations = vacationsRedux?.filter(v => new Date(v.endDate) > new Date() && new Date(v.startDate) < new Date())
           if (filteredVacations?.length !== 0) {
               setVacations(filteredVacations)
           } else {
               setVacations([])  // No vacations found, set to empty array
           }
+      } else {
+        setVacations(vacationsRedux)
       }
-  }, [filter, likesReduxState, userId, vacations, vacationsRedux])
+  }, [filter, likesReduxState, userId, vacationsRedux])
 
   return (
       <>

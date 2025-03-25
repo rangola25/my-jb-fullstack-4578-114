@@ -14,6 +14,12 @@ export const newVacationFilesValidator = Joi.object({
     }).unknown(true).required()
 })
 
+export const updateVacationFilesValidator = Joi.object({
+    file: Joi.object({
+        mimetype: Joi.string().valid('image/png', 'image/jpg', 'image/jpeg')
+    }).unknown(true).required()
+})
+
 export const updateVacationValidatorAdmin = newVacationValidatorAdmin
 
 export const validationVacationParamsAdmin = Joi.object({

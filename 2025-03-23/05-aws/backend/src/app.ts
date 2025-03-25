@@ -11,7 +11,8 @@ import feedRouter from "./routers/feed"
 import authRouter from "./routers/auth"
 import cors from 'cors'
 import fileUpload from "express-fileupload"
-import { createAppBucketIfNotExist } from "./aws/aws"
+import { createAppBucketIfNotExist } from "./aws/s3"
+import { createAppQueueIfNotExist, queueUrl } from "./aws/sqs"
 
 const force = config.get<boolean>('sequelize.sync.force') 
 
@@ -21,6 +22,9 @@ export async function start() {
   await sequelize.sync({ force })
 
   await createAppBucketIfNotExist();
+
+  await createAppQueueIfNotExist()
+  console.log(`queue url is ${queueUrl}`)
 
   app.use(cors())
   // app.use(cors({

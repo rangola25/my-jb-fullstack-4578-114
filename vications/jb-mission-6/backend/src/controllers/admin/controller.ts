@@ -49,17 +49,16 @@ export async function editVacation(req: Request<{id: string}>, res: Response, ne
 
   export async function createVacation(req: Request, res: Response, next: NextFunction) {
     try {
-        // const userId = req.userId
+        const userId = req.userId
 
-        // let createParams = { ...req.body, userId }
+        let createParams = { ...req.body, userId }
 
-        // if(req.file) {
-        //     const { file } = req
-        //     createParams = { ...createParams, file }
-        // }
-
-        const vacation = await Vacation.create(req.body)
-        await vacation.reload({include: [ Vacation ]})
+        if(req.file) {
+            const { file } = req
+            createParams = { ...createParams, file }
+        }
+        const vacation = await Vacation.create(createParams)
+        await vacation.reload()
         res.json(vacation)
         // socket.emit('newPost', post)
     } catch (e) {

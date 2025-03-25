@@ -10,7 +10,7 @@ import Draft from '../../../models/vacation/Draft'
 
 export default function EditVacation(): JSX.Element {
     const { id } = useParams<'id'>()
-    const { handleSubmit, register, formState, reset, setValue, setError } = useForm<Draft>()
+    const { handleSubmit, register, formState, reset, setValue } = useForm<Draft>()
     const navigate = useNavigate()
 
     const vacation = useAppSelector(state => state.vacations.vacations.find(v => v.id === id))
@@ -18,41 +18,40 @@ export default function EditVacation(): JSX.Element {
 
     const adminService = useService(Admin)
 
+    // State for preview image source
+    const [previewImageSrc, setPreviewImageSrc] = useState<string>('')
+
+    // Effect to pre-fill the form for editing
     useEffect(() => {
         if (id && vacation) {
             const { price, description, destination, file, endDate, startDate } = vacation
             reset({ price, description, destination, endDate, startDate })
-            setPreviewImageSrc(file)
+            
+            // If vacation has an existing image, set it as the preview
+            if (file) {
+                setPreviewImageSrc(`${import.meta.env.VITE_AWS_SERVER_URL}/${file}`)
+            }
         }
     }, [id, reset, vacation])
 
     async function submit(draft: Draft) {
         try {
-            // Manually check if file is provided
-            if (!draft.file) {
-                setError("file", {
-                    type: "manual",
-                    message: "You must upload a cover image"
-                })
-                return
-            }
-    
             const startDate = new Date(draft.startDate)
             const endDate = new Date(draft.endDate)
     
-            if (endDate < startDate) {
+            if (endDate <= startDate) {
                 alert("The finish date must be later than the starting date")
                 return
             }
     
             if (!id) {
-                alert("Vacation ID is missing");
-                return;
+                alert("Vacation ID is missing")
+                return
             }
     
             const updatedVacation = await adminService.updateVacation(id, draft)
             dispatch(update(updatedVacation))
-            setPreviewImageSrc('')
+            setPreviewImageSrc('') // Clear preview after submitting
             navigate('/admin/vacations')
         } catch (e) {
             alert(e)
@@ -62,8 +61,6 @@ export default function EditVacation(): JSX.Element {
     function cancel() {
         navigate(`/admin/vacations`)
     }
-
-    const [previewImageSrc, setPreviewImageSrc] = useState<string>('')
 
     function previewImage(event: ChangeEvent<HTMLInputElement>) {
         const file = event.currentTarget.files && event.currentTarget.files[0]
@@ -96,7 +93,7 @@ export default function EditVacation(): JSX.Element {
                         minLength: {
                             value: 10,
                             message: 'Description must be 10 chars long'
-                        },
+                        }
                     })} />
                     <span className='error'>{formState.errors.description?.message}</span>
 
@@ -140,8 +137,13 @@ export default function EditVacation(): JSX.Element {
                         type='file'
                         onChange={previewImage}
                     />
-                    {previewImageSrc && <img src={`${import.meta.env.VITE_AWS_SERVER_URL}/${previewImageSrc}`}  alt="Preview" style={{ width: '200px', height: 'auto' }} />}
-                    {/* Display error message for file if needed */}
+                    {/* Conditionally display the image: preview or current image from the server */}
+                    {previewImageSrc ? (
+                        <img src={previewImageSrc} alt="Preview" style={{ width: '200px', height: 'auto' }} />
+                    ) : vacation?.file ? (
+                        <img src={`${import.meta.env.VITE_AWS_SERVER_URL}/${vacation.file}`} alt="Current Image" style={{ width: '200px', height: 'auto' }} />
+                    ) : null}
+
                     <span className='error'>{formState.errors.file?.message}</span>
 
                     <button type="submit">Update Vacation</button>

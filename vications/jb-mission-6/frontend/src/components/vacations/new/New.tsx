@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form'
 import './New.css'
-import loadingImageSource from '../../../assets/images/loading.webp'
 import { useAppDispatch } from '../../../redux/hooks'
 import useService from '../../../hooks/useService'
 import { ChangeEvent, useState } from 'react'
@@ -8,10 +7,11 @@ import VacationDraft from '../../../models/vacation/Draft'
 import Admin from '../../../services/auth-aware/admin'
 import { newVacation } from '../../../redux/vacationSlice'
 import { useNavigate } from 'react-router-dom'
+import Draft from '../../../models/vacation/Draft'
 
 export default function New(): JSX.Element {
 
-    const { register, handleSubmit, reset, formState } = useForm<VacationDraft>()
+  const { handleSubmit, register, formState, reset, setValue } = useForm<Draft>()
 
     const [previewImageSrc, setPreviewImageSrc] = useState<string>('')
 
@@ -19,24 +19,36 @@ export default function New(): JSX.Element {
 
     const adminService = useService(Admin)
 
+    function resetTime(date: Date): Date {
+        const resetDate = new Date(date);
+        resetDate.setHours(0, 0, 0, 0);
+        return resetDate;
+      }
+
     async function submit(draft: VacationDraft) {
         try {
             const startDate = new Date(draft.startDate)
             const endDate = new Date(draft.endDate)
+            const today = resetTime(new Date());
 
-            if (endDate < startDate) {
+            if (endDate <= startDate) {
                 alert("The finish date must be later than the starting date")
+                return
             }
 
-            if (startDate < new Date()) {
+            if (startDate <= today) {
                 alert("The start date can not be in the past. pay attention!")
+                return
             }
+
             // draft.postImage = (draft.postImage as unknown as FileList)[0]
             // draft.file = (draft.file as string)
             const newVacationFromServer = await adminService.createVacation(draft)
             reset()
             setPreviewImageSrc('')
             dispatch(newVacation(newVacationFromServer))
+            navigate('/admin/vacations')
+            window.location.reload()
         } catch (e) {
             alert(e)
         }
@@ -52,6 +64,7 @@ export default function New(): JSX.Element {
         if (file) {
             const imageSource = URL.createObjectURL(file)
             setPreviewImageSrc(imageSource)
+            setValue('file', file)  // Set the selected file in the form state
         }
     }
 
@@ -74,6 +87,10 @@ export default function New(): JSX.Element {
                         required: {
                             value: true,
                             message: 'You must provide a description'
+                        },
+                        minLength: {
+                            value: 10,
+                            message: 'Description must be 10 chars long'
                         }
                     })} />
                     <span className='error'>{formState.errors.description?.message}</span>
@@ -114,18 +131,12 @@ export default function New(): JSX.Element {
                     <span className='error'>{formState.errors.price?.message}</span>
 
                     <label>cover Image</label>
-                    <input type="file" accept='image/png, image/jpeg, image/jpg' {...register('file',  {
-                        required: {
-                            value: true,
-                            message: 'You must provide a file'
-                        }
-                    })}  onChange={previewImage}/>
+                    <input type='file' onChange={previewImage}/>
+                     <img src={previewImageSrc} alt="Preview" style={{ width: '200px', height: 'auto' }} />
                     <span className='error'>{formState.errors.file?.message}</span>
-                    {!previewImageSrc && <img src={``} />}
-                    {previewImageSrc && <img src={previewImageSrc} />}
-                    {!formState.isSubmitting && <button>Add Vacation</button>}
-                    {formState.isSubmitting && <p>posting new vacation... <i><img src={loadingImageSource} /></i></p>}
-                    <button onClick={cancel}>Cancel</button>
+
+                    <button type="submit">Update Vacation</button>
+                    <button type="button" onClick={cancel}>Cancel</button>
                 </form>
             </div>
         </div>

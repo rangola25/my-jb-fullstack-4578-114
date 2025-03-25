@@ -1,0 +1,26 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.Header .active {
+    color: green;
+}
+
+.nav, .helloName {
+    font-size: x-large;
+}
+
+.logo > img {
+    height: 70px;
+    border-radius: 50%;  
+    object-fit: cover; 
+    border: 2px solid #000;
+}
