@@ -1,88 +1,95 @@
 import { NextFunction, Request, Response } from "express";
-// import User from "../../models/user";
-import Follow from "../../models/follow";
 import { col } from "sequelize";
-import AppError from "../../errors/twitter-error";
+
 import { StatusCodes } from "http-status-codes";
 import { UserModel } from "../../models/user";
-// import jwtHeaders from "../common/jwt";
+import AppError from "../../errors/twitter-error";
 
 export async function getFollowers(req: Request, res: Response, next: NextFunction) {
-  try {
-      const userId = req.userId
-      const followers = await UserModel.find({
-          following: {
-              $in: userId
-          }
-      })
+    try {
+        const userId = req.userId
+        const followers = await UserModel.find({
+            following: {
+                $in: userId
+            }
+        })
 
-      res.json(followers.map(user => user.toObject()))
-  } catch (e) {
-      next(e)
-  }
+        res.json(followers.map(user => user.toObject()))
+    } catch (e) {
+        next(e)
+    }
 }
 
 export async function getFollowing(req: Request, res: Response, next: NextFunction) {
-  try {
-      const userId = req.userId
-      const user = await UserModel.findById(userId)
-      res.json(user.following)
-  } catch (e) {
-      next(e)
-  }
+    try {
+        const userId = req.userId
+        const user = await UserModel.findById(userId)
+        res.json(user.following)
+    } catch (e) {
+        next(e)
+    }
 }
 
-export async function follow(req: Request<{id: string}>, res: Response, next: NextFunction) {
+export async function follow(req: Request<{ id: string }>, res: Response, next: NextFunction): Promise<void> {
+    try {
+        const userId = req.userId;
 
-  try {
-      const userId = req.userId
+        // Log the userId for debugging purposes
+        console.log('User ID:', userId);
 
-      // 1. the javascript way fetch and update
-      // const user = await UserModel.findById(userId)
-      // user.following.push(req.params.id)
-      // await user.save()
+        // Log the request parameters for debugging purposes
+        console.log('Request Params:', req.params);
 
-      // 2. the mongo way
-      const user = await UserModel.findByIdAndUpdate(userId, {
-          $push: {
-              following: req.params.id
-          }
-      }, {
-          new: true
-      })        
+        // 1. the javascript way fetch and update
+        // const user = await UserModel.findById(userId)
+        // user.following.push(req.params.id)
+        // await user.save()
 
-      res.json(user.toObject())
-  } catch (e) {
-      next(e)
-  }
+        // 2. the mongo way
+        const user = await UserModel.findByIdAndUpdate(userId, {
+            $push: {
+                following: req.params.id
+            }
+        }, {
+            new: true
+        });
+
+        if (!user) {
+            return next(new AppError(404, 'User not found'));
+        }
+
+        res.json(user.toObject());
+    } catch (e) {
+        next(e);
+    }
 }
 
 export async function unfollow(req: Request<{id: string}>, res: Response, next: NextFunction) {
 
-  try {
-      const userId = req.userId
+    try {
+        const userId = req.userId
 
-      // 1. the javascript way fetch and update
-      // const user = await UserModel.findById(userId)
-      // user.following = user.following.filter(followId => followId !== req.params.id)
-      // await user.save()
+        // 1. the javascript way fetch and update
+        // const user = await UserModel.findById(userId)
+        // user.following = user.following.filter(followId => followId !== req.params.id)
+        // await user.save()
 
-      // 2. the mongo way
-      const user = await UserModel.findOneAndUpdate({
-          _id: userId
-      }, {
-          $pull: {
-              following: req.params.id
-          }
-      }, {
-          new: true
-      })  
-      // if (!isUnfollowed) return next(new AppError(
-      //     StatusCodes.NOT_FOUND,
-      //     'tried to delete unexisting record'
-      // ))
-      res.json({ success: true })
-  } catch (e) {
-      next(e)
-  }
+        // 2. the mongo way
+        const user = await UserModel.findOneAndUpdate({
+            _id: userId
+        }, {
+            $pull: {
+                following: req.params.id
+            }
+        }, {
+            new: true
+        })  
+        // if (!isUnfollowed) return next(new AppError(
+        //     StatusCodes.NOT_FOUND,
+        //     'tried to delete unexisting record'
+        // ))
+        res.json({ success: true })
+    } catch (e) {
+        next(e)
+    }
 }

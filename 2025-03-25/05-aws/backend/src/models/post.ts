@@ -4,7 +4,7 @@ import { User } from "./user"
 interface PostComment {
     body: string,
     userId: string,
-    user: User
+    user: User,
     createdAt: Date
 }
 
@@ -12,7 +12,7 @@ interface Post {
     title: string,
     body: string,
     userId: string,
-    user: User
+    user: User,
     createdAt: Date,
     comments: PostComment[]
 }

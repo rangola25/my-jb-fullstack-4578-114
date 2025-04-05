@@ -1,0 +1,84 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerContainer nav {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.headerContainer .active {
+    color: black;
+}
+
+.logo > img {
+    height: 70px;
+    border-radius: 50%;  
+    object-fit: cover; 
+    border: 2px solid #000;
+}
+
+/* Basic reset for nav */
+.navHeader {
+    background-color: #f4f4f4; /* Darker shade of blue-gray */
+    padding: 15px 30px; /* Increased padding for a more spacious layout */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Style for links */
+.navHeader a {
+    color: black; /* Light gray color for text */
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500; /* Slightly bold font for readability */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for links */
+.navHeader a:hover {
+    background-color: #3498db; /* Lighter blue color for hover */
+    color: white;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active link style */
+.navHeader a.active {
+    background-color: #2980b9; /* Darker blue when active */
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for active state */
+}
+
+/* Optional: Style for the container when there are no links */
+.navHeader.empty {
+    display: none;
+}
+
+/* Add a nice focus effect for accessibility */
+.navHeader a:focus {
+    outline: 2px solid #3498db; /* Outline on focus to make links accessible */
+    outline-offset: 4px;
+}
+
+/* Mobile Responsiveness: Stacks links vertically on smaller screens */
+@media (max-width: 768px) {
+    .navHeader {
+        flex-direction: column; /* Stack the links vertically */
+        padding: 20px;
+    }
+
+    .navHeader a {
+        width: 100%; /* Make links take full width on mobile */
+        text-align: center;
+        margin-bottom: 10px; /* Space between links */
+    }
+}

@@ -1,0 +1,63 @@
+/* Container for labels and checkboxes */
+label {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 12px; Spacing between each label */
+    font-size: 1rem;
+    color: #34495e; /* Text color for better readability */
+    font-weight: 500; /* Slightly bold text for clarity */
+    cursor: pointer; /* Pointer cursor to indicate interactivity */
+    transition: color 0.3s ease;
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+    width: 18px; /* Size of the checkbox */
+    height: 18px;
+    margin-right: 12px; /* Spacing between checkbox and label text */
+    cursor: pointer;
+    appearance: none; /* Remove default styling */
+    background-color: #ecf0f1; /* Light gray background */
+    border: 2px solid #bdc3c7; /* Subtle border */
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Checkbox on checked state */
+input[type="checkbox"]:checked {
+    background-color: #3498db; /* Blue background when checked */
+    border-color: #3498db; /* Blue border */
+}
+
+input[type="checkbox"]:checked::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: white; /* White checkmark */
+    border-radius: 2px;
+    margin: 3px auto; /* Center the checkmark */
+}
+
+/* Hover effect for labels */
+label:hover {
+    color: #3498db; /* Text turns blue when hovering over label */
+}
+
+/* Focus effect for accessibility */
+input[type="checkbox"]:focus {
+    outline: 2px solid #3498db; /* Blue outline for focus state */
+    outline-offset: 3px;
+}
+
+/* Optional: On small screens, make the text larger for easier readability */
+@media (max-width: 480px) {
+    label {
+        font-size: 1.2rem; /* Increase font size on smaller screens */
+    }
+
+    input[type="checkbox"] {
+        width: 20px; /* Larger checkbox for easier clicking on mobile */
+        height: 20px;
+    }
+}

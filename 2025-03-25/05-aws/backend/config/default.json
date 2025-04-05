@@ -32,8 +32,8 @@
         }
     },
     "sqs": {
-        "queueName": "rango25-sn-queue",
         "isLocalstack": true,
+        "queueName": "rango25-sn-queue",
         "connection": {
             "region": "us-east-1",
             "forcePathStyle": true, 

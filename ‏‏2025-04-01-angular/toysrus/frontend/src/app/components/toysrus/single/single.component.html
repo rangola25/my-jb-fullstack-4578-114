@@ -1,0 +1,9 @@
+<div id="furniture">
+    <div data-label="Type:">Type: {{ getTypeName(toy?.typeId) }}</div>
+    <div data-label="Name:">Toy name: {{ toy?.name }}</div>
+    <div data-label="Description:">Description: {{ toy?.description }}</div>
+    <div data-label="Price:">Price: {{ toy?.price }}$</div>
+    <div>
+        <button (click)="deleteToy()">Delete</button>
+    </div>
+</div>

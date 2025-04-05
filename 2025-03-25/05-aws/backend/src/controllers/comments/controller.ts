@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import Comment from "../../models/comment";
+// import Comment from "../../models/comment";
 // import User from "../../models/user";
 // import jwtHeaders from "../common/jwt";
 import socket from "../../io/io";

@@ -1,0 +1,49 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styles */
+#header img {
+    max-height: 50px;
+    margin-right: 20px;
+}
+
+/* Navigation Styles */
+#header div {
+    display: flex;
+    align-items: center;
+}
+
+#header a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+#header a.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#header a:hover {
+    color: #0056b3;
+}

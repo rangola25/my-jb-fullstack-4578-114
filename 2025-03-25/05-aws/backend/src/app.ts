@@ -1,6 +1,6 @@
 import express, { json } from "express"
 import config from "config"
-import sequelize from "./db/sequelize"
+// import sequelize from "./db/sequelize"
 import profileRouter from "./routers/profile"
 import errorLogger from "./middlewares/error/error-logger"
 import notFound from "./middlewares/not-found"
@@ -29,7 +29,7 @@ export async function start() {
   await createAppQueueIfNotExist()
   console.log(`queue url is ${queueUrl}`)
 
-  // app.use(cors())
+  app.use(cors())
   // app.use(cors({
   //   origin: 'http://localhost:5173'
   // }))

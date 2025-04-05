@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 // import User from "../../models/user";
 // import Post from "../../models/post";
 // import postIncludes from "../common/post-includes";
-import sequelize from "../../db/sequelize";
+// import sequelize from "../../db/sequelize";
 import { PostModel } from "../../models/post";
 import { UserModel } from "../../models/user";
 // import jwtHeaders from "../common/jwt";

@@ -1,0 +1,77 @@
+.NewVacationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.NewVacation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 300px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+
+}
+
+.NewVacation h1 {
+    color: dodgerblue;
+    size: 40px;
+}
+
+.NewVacation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.NewVacation .submit {
+    color: white;
+    background-color: dodgerblue;
+    border: 0px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.NewVacation .cancel {
+    margin-top: 12px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray; /* Add this line */
+    height: 30px; 
+    border-radius: 5%;
+}
+
+.NewVacation span {
+    text-align: center;
+}
+
+.NewVacation form > label {
+    color: gray;
+}
+
+.inputWithSymbol {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Adjust the width to match other input fields */
+}
+
+.dollarSymbol {
+    position: absolute;
+    left: 10px; /* adjust the value based on your preference */
+    font-size: 16px; /* adjust the size based on your preference */
+}
+
+.inputWithSymbol input {
+    width: 100%; /* Adjust the width to match other input fields */
+    padding-left: 25px; /* adjust the value based on your preference */
+}
+
+input {
+    margin-bottom: 12px;
+}
+

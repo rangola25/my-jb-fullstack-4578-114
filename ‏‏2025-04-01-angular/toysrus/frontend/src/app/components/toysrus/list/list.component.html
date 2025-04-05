@@ -1,0 +1,26 @@
+<form [formGroup]="newForm" (ngSubmit)="maxPriceClicked()">
+    <div class="form-group">
+      <label for="price">Enter Max Price:</label>
+      <input type="number" id="price" formControlName="maxPrice" [(ngModel)]="price" (change)="onPriceChange()" placeholder="Enter max price" />
+      <br><br>
+      <div class="error" *ngIf="formSubmitted && newForm.controls.maxPrice.invalid">
+        <span *ngIf="newForm.controls.maxPrice.errors?.['min']">Max price cannot be negative</span>
+      </div>
+      <button type="submit">Enter</button>
+    </div>
+  </form>
+
+<div>
+    <label for="typeFilter">Filter by Type:</label>
+    <select id="typeFilter" [(ngModel)]="selectedType" (change)="onTypeChange()">
+        <option value="">All</option>
+        <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
+    </select>
+</div>
+
+<div id="list">
+    <div *ngFor="let toy of list(); trackBy: trackById">
+        <app-single [toy]="toy"></app-single>
+    </div>
+    <p *ngIf="list().length === 0">loading...</p>
+</div>

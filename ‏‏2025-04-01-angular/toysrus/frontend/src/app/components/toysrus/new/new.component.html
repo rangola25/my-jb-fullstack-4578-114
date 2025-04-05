@@ -1,0 +1,45 @@
+<form [formGroup]="newForm" (ngSubmit)="addToy()">
+    <h2>Add New Toy</h2>
+    
+    <div class="form-group">
+        <label for="typeId">Type</label>
+        <select formControlName="typeId" id="typeId">
+            <option value="">Select type</option>
+            <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
+        </select>
+        <div class="error" *ngIf="formSubmitted && newForm.controls.typeId.invalid">
+            <span *ngIf="newForm.controls.typeId.errors?.['required']">Type is required</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Toy Name</label>
+        <input formControlName="name" id="name" placeholder="Toy Name">
+        <br>
+        <div class="error" *ngIf="formSubmitted && newForm.controls.name.invalid">
+            <span *ngIf="newForm.controls.name.errors?.['required']">Name is required</span>
+            <span *ngIf="newForm.controls.name.errors?.['minlength']">Name must be at least 2 characters long</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input formControlName="description" id="description" placeholder="Description">
+        <br>
+        <div class="error" *ngIf="formSubmitted && newForm.controls.description.invalid">
+            <span *ngIf="newForm.controls.description.errors?.['required']">Description is required</span>
+            <span *ngIf="newForm.controls.description.errors?.['minlength']">Description must be at least 10 characters long</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input formControlName="price" type="number" id="price" placeholder="Price">
+        <div class="error" *ngIf="formSubmitted && newForm.controls.price.invalid">
+            <span *ngIf="newForm.controls.price.errors?.['required']">Price is required</span>
+            <span *ngIf="newForm.controls.price.errors?.['min']">Price must be positive</span>
+        </div>
+    </div>
+
+    <button type="submit">Add Toy</button>
+</form>
